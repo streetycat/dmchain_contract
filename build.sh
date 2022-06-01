@@ -15,7 +15,11 @@ if [ ! -d "/usr/local/eosio.wasmsdk" ]; then
     cd ${CWD}
 fi
 
-printf "\t=========== Building dmc.contracts ===========\n\n"
+# cd eosio.contracts
+# sh build.sh
+# cd ${CWD}
+
+printf "\t=========== Building fibos.contracts ===========\n\n"
 unamestr=`uname`
 if [[ "${unamestr}" == 'Darwin' ]]; then
    BOOST=/usr/local
@@ -58,8 +62,8 @@ fi
 CORES=`getconf _NPROCESSORS_ONLN`
 mkdir -p build
 pushd build &> /dev/null
-cmake -DCXX_COMPILER="${CXX_COMPILER}" -DBOOST_ROOT="${BOOST}" -DEOSIO_INSTALL_PREFIX=/usr/local ../dmc.contracts
+cmake -DCXX_COMPILER="${CXX_COMPILER}" -DBOOST_ROOT="${BOOST}" -DEOSIO_INSTALL_PREFIX=/usr/local ../fibos.contracts
 make -j${CORES}
 popd &> /dev/null
 TIME_END=$(( $(date -u +%s) - ${TIME_BEGIN} ))
-printf "\\n\\tdmc.contracts has been successfully built. %02d:%02d:%02d\\n\\n" $(($TIME_END/3600)) $(($TIME_END%3600/60)) $(($TIME_END%60))
+printf "\\n\\tfibos.contracts has been successfully built. %02d:%02d:%02d\\n\\n" $(($TIME_END/3600)) $(($TIME_END%3600/60)) $(($TIME_END%60))

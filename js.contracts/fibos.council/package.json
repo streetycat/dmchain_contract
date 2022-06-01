@@ -1,0 +1,12 @@
+{
+    "name": "contract",
+    "version": "1.0.0",
+    "description": "",
+    "repository": "",
+    "keywords": "",
+    "dependencies": {
+        "fibos.js": "^0.3.1"
+    },
+    "author": "",
+    "license": "ISC"
+}
